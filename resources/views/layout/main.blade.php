@@ -9,7 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title> @yield('title')</title>
+    @yield('style')
 </head>
 
 <body>
@@ -21,7 +22,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+                <li class="nav-item active">
                     <a class="nav-link" href="/">Home </a>
                 </li>
                 <li class="nav-item">
@@ -34,10 +35,10 @@
                     <a class="nav-link" href="/categories">Category</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Create Blog</a>
+                    <a class="nav-link" href="/create-blog">Create Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Blogs</a>
+                    <a class="nav-link" href="/blogs">Blogs</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">

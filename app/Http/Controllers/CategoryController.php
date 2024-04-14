@@ -33,11 +33,12 @@ class CategoryController extends Controller
         $cat = new Category();
         $cat->name = $request->name;
         if($request->file('image')){
-            $file = $request->file('image');
-            $filename = time().$file->getClientOriginalName();
-            $file->move('category',$filename);
-            $cat->image = 'category/'.$filename;
+            $iamge = $request->file('image');
+            $filename = time().$iamge->getClientOriginalName();
+            $iamge->move('category',$filename);
         }
+        $cat->image = 'category/'.$filename;
+
         $cat->save();
         return redirect('/categories');
     }

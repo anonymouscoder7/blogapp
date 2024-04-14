@@ -1,4 +1,8 @@
 @extends('layout.main')
+@section('title','Create Page')
+@section('style')
+
+@endsection
 @section('content')
 <div class="container">
     <form action="/store-category" method="post" enctype="multipart/form-data">
@@ -14,5 +18,4 @@
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
 </div>
-
 @endsection

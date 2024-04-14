@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -12,7 +13,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = Blog::orderBy('id','desc')->get();
+        return view("blog.index",compact("blogs"));
     }
 
     /**
@@ -20,7 +22,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('blog.create', compact('categories'));
     }
 
     /**
@@ -28,7 +31,19 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $blog = new Blog();
+        $blog->title = $request->name;
+        $blog->desc = $request->description;
+        $blog->author = $request->author;
+        $blog->category_id = $request->category_id;
+        if ($request->file('image')) {
+            $iamge = $request->file('image');
+            $filename = time() . $iamge->getClientOriginalName();
+            $iamge->move('blog', $filename);
+            $blog->image = 'blog/' . $filename;
+        }
+        $blog->save();
+        return back();
     }
 
     /**
