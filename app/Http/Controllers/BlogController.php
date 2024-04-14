@@ -57,24 +57,41 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
-        //
+        $blog = Blog::find($id);
+        $categories = Category::all();
+
+        return view('blog.edit',compact('blog','categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request)
     {
-        //
+        $blog = Blog::find($request->blog_id);
+        $blog->title = $request->name;
+        $blog->desc = $request->description;
+        $blog->author = $request->author;
+        $blog->category_id = $request->category_id;
+        if ($request->file('image')) {
+            $iamge = $request->file('image');
+            $filename = time() . $iamge->getClientOriginalName();
+            $iamge->move('blog', $filename);
+            $blog->image = 'blog/' . $filename;
+        }
+        $blog->update();
+        return redirect('/blogs');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blog $blog)
+    public function destroy($id)
     {
-        //
+        $blog = Blog::find($id);
+        $blog->delete();
+        return back();
     }
 }
