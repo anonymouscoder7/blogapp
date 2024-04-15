@@ -30,12 +30,13 @@ Route::get('/categories',[CategoryController::class,'index']);
 Route::get('/create-blog',[BlogController::class,'create']);
 Route::post('/store-blog',[BlogController::class,'store']);
 Route::get('/edit-blog/{id}',[BlogController::class,'edit']);
-
 Route::post('/update-blog',[BlogController::class,'update']);
 Route::get('/delete-blog/{id}',[BlogController::class,'destroy']);
 
-Route::get('/blogs',[BlogController::class,'index']);
 
 
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/blogs',[BlogController::class,'index'])->middleware('auth');
 
 

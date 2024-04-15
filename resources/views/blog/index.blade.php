@@ -30,7 +30,6 @@
                     <td>
                         <a href="/edit-blog/{{$blog->id}}" class="btn btn-primary">Edit</a>
                         <a href="/delete-blog/{{$blog->id}}" class="btn btn-danger">Delete</a>
-
                     </td>
 
                 </tr>
