@@ -10,13 +10,17 @@ class FrontendController extends Controller
 {
     public function landing()
     {
-        if(auth()->user()){
-            $blogs = Blog::orderBy('id','desc')->get();
-            return view('index',compact('blogs'));
-        }else{
-            return redirect('/login');
-        }
-       
+
+        $blogs = Blog::orderBy('id', 'desc')->get();
+        return view('index', compact('blogs'));
+
+        // if(auth()->user()){
+        //     $blogs = Blog::orderBy('id','desc')->get();
+        //     return view('index',compact('blogs'));
+        // }else{
+        //     return redirect('/login');
+        // }
+
     }
     public function about()
     {

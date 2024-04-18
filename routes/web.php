@@ -27,6 +27,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 Route::group(['middleware' => 'auth'], function () {
+    // Route::get('/', [FrontendController::class, 'landing']);
+
     Route::get('/about', [FrontendController::class, 'about']);
 });
 // group with middleware auth
