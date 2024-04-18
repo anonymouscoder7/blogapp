@@ -13,6 +13,7 @@ class BlogController extends Controller
      */
     public function index()
     {
+        
         $blogs = Blog::orderBy('id','desc')->get();
         return view("blog.index",compact("blogs"));
     }

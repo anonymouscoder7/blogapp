@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('admin.layout.main')
 @section('title','Update Page')
 @section('content')
 <div class="container">

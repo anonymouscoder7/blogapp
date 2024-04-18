@@ -24,6 +24,10 @@ class HomeController extends Controller
     public function index()
     {
         // after login
-        return view('dashboard');
+        if (auth()->user()->role == 'admin') {
+            return redirect('/admin/dashboard');
+        } else {
+            return redirect('/');
+        }
     }
 }

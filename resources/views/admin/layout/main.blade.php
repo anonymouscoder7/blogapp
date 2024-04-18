@@ -16,7 +16,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            NavBar
+           Dashboard
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,13 +24,19 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home </a>
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="/create-category">Create Category</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
+                    <a class="nav-link" href="/categories">Category</a>
                 </li>
-               
+                <li class="nav-item">
+                    <a class="nav-link" href="/create-blog">Create Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/blogs">Blogs</a>
+                </li>
                 
             </ul>
 
